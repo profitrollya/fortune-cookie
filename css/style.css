@@ -23,7 +23,7 @@ canvas {
 
 .button-image img {
     max-width: 800px;
-    max-height: 800px;
+    max-height: 750px;
 }
 
 .button-image button {
