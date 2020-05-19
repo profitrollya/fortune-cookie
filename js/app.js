@@ -1,5 +1,5 @@
 window.onload = function() {
-     var app = new Vue({
+    var app = new Vue({
         el: '#app',
         data: {
             startState: false,
@@ -16,6 +16,10 @@ window.onload = function() {
             getNew: function () {
                 this.startState = true;
             },
+            preloadImage: function (url) {
+                let img = new Image();
+                img.src= url;
+            },
             getNext: function() {
                 if (this.imageIndex <= this.imageMaxIndex) {
                     this.imageSourcePath = "img/i-" + this.imageIndex+ ".png";
@@ -24,7 +28,13 @@ window.onload = function() {
                     this.imageIndex = 0;
                 }
             }
-        }
+        },
+/*        mounted(){
+            for (let i=0; i<55; i++) {
+                this.preloadImage("img/i-" + i + ".png");
+                console.log("img/i-" + i + ".png");
+            }
+        }*/
     });
 
      //Sergey Happy Birthday background code
@@ -38,7 +48,7 @@ window.onload = function() {
     var draw = function () {
         q.getContext('2d').fillStyle = 'rgba(0,0,0,.05)'; //Тут цвет фона
         q.getContext('2d').fillRect(0, 0, width, height);
-        q.getContext('2d').fillStyle = '#0F0'; //Тут цвет букв
+        q.getContext('2d').fillStyle = '#00ff00'; //Тут цвет букв
         letters.map(function (y_pos, index) {
             text = String.fromCharCode(65 + Math.random() * 33);
             x_pos = index * 10;
@@ -46,5 +56,6 @@ window.onload = function() {
             letters[index] = (y_pos > 758 + Math.random() * 1e4) ? 0 : y_pos + 10;
         });
     };
+
     setInterval(draw, 33);
 }
