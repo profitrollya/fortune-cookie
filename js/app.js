@@ -29,12 +29,12 @@ window.onload = function() {
                 }
             }
         },
-/*        mounted(){
+        mounted(){
             for (let i=0; i<55; i++) {
                 this.preloadImage("img/i-" + i + ".png");
                 console.log("img/i-" + i + ".png");
             }
-        }*/
+        }
     });
 
      //Sergey Happy Birthday background code
